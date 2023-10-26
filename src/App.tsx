@@ -8,16 +8,12 @@ function App() {
     if (!stripe || !elements) {
       return;
     }
-    try {
-      console.log(elements);
-      const { error, paymentMethod } = await stripe.createPaymentMethod({
-        elements: elements,
-      });
-      console.log(paymentMethod);
-      console.log(error);
-    } catch (err) {
-      console.log(err);
-    }
+    console.log(elements);
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      elements: elements,
+    });
+    console.log(paymentMethod);
+    console.log(error);
   }
   return (
     <main>
